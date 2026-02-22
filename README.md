@@ -73,12 +73,7 @@ WebDev Learn is a modern, gamified, and interactive web development learning pla
 
 This application is configured as a Single Page Application (SPA). A `vercel.json` file is already included to handle React Router rewrites natively.
 
-To deploy using the Vercel CLI:
-```bash
-npm install -g vercel
-vercel login
-vercel --prod
-```
+The platform is officially hosted at: **[https://webdevelopmentcourse.vercel.app/](https://webdevelopmentcourse.vercel.app/)**
 Ensure you add all your `VITE_FIREBASE_*` variables into the Vercel Environment Variables dashboard!
 
 ## 🔐 Admin Access
