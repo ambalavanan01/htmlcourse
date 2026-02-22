@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+
+  --color-secondary-100: #ede9fe;
+  --color-secondary-500: #8b5cf6;
+  --color-secondary-600: #7c3aed;
+  --color-secondary-700: #6d28d9;
+  --color-secondary-900: #4c1d95;
+
+  --color-dark-bg: #0f172a;
+  --color-dark-surface: #1e293b;
+  --color-dark-border: #334155;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+
+  .dark body {
+    @apply bg-dark-bg text-slate-100;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-600 hover:bg-secondary-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95;
+  }
+
+  .btn-outline {
+    @apply border-2 border-slate-300 hover:border-slate-400 dark:border-dark-border dark:hover:border-slate-500 font-medium py-2 px-4 rounded-lg transition-all duration-200;
+  }
+
+  .glass-panel {
+    @apply bg-white/80 dark:bg-dark-surface/80 backdrop-blur-md border border-slate-200 dark:border-dark-border shadow-md rounded-xl;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all;
+  }
+}
