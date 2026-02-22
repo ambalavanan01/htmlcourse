@@ -24,6 +24,9 @@ export default function Navbar() {
 
     const NavLinks = () => (
         <>
+            <Link to="/compiler" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium py-2 md:py-0 md:mr-4">
+                Compiler
+            </Link>
             {currentUser ? (
                 <>
                     <Link to="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium py-2 md:py-0">

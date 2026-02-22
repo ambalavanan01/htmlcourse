@@ -10,6 +10,7 @@ import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Lesson from './pages/Lesson';
 import Certificate from './pages/Certificate';
+import OnlineCompiler from './pages/OnlineCompiler';
 
 import AdminRoute from './components/common/AdminRoute';
 import AdminDashboard from './pages/AdminDashboard';
@@ -42,6 +43,7 @@ function App() {
                 <Certificate />
               </ProtectedRoute>
             } />
+            <Route path="compiler" element={<OnlineCompiler />} />
             <Route path="admin" element={
               <AdminRoute>
                 <AdminDashboard />
