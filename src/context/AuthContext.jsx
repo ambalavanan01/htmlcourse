@@ -5,7 +5,8 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
-    sendPasswordResetEmail
+    sendPasswordResetEmail,
+    confirmPasswordReset
 } from "firebase/auth";
 import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 
@@ -71,6 +72,10 @@ export const AuthProvider = ({ children }) => {
         return sendPasswordResetEmail(auth, email);
     }
 
+    const confirmReset = (oobCode, newPassword) => {
+        return confirmPasswordReset(auth, oobCode, newPassword);
+    }
+
     const value = {
         currentUser,
         userData,
@@ -79,6 +84,7 @@ export const AuthProvider = ({ children }) => {
         login,
         logout,
         resetPassword,
+        confirmReset
     };
 
     return (
