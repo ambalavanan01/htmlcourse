@@ -9,7 +9,7 @@ import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { FaDownload, FaMagic, FaEllipsisV } from 'react-icons/fa';
 
-export default function CodeEditor({ initialCode, onRun }) {
+export default function CodeEditor({ initialCode, onRun, livePreview = false }) {
     const [html, setHtml] = useState(initialCode.html || '');
     const [css, setCss] = useState(initialCode.css || '');
     const [js, setJs] = useState(initialCode.js || '');
@@ -26,6 +26,16 @@ export default function CodeEditor({ initialCode, onRun }) {
     const handleRun = () => {
         onRun({ html, css, js });
     };
+
+    useEffect(() => {
+        if (!livePreview) return;
+        const timeoutId = setTimeout(() => {
+            if (onRun) {
+                onRun({ html, css, js });
+            }
+        }, 800);
+        return () => clearTimeout(timeoutId);
+    }, [html, css, js, onRun, livePreview]);
 
     const handleFormat = async () => {
         try {
@@ -170,12 +180,14 @@ export default function CodeEditor({ initialCode, onRun }) {
                         )}
                     </div>
 
-                    <button
-                        onClick={handleRun}
-                        className="bg-green-600 hover:bg-green-700 text-white text-sm px-4 py-1.5 rounded flex items-center shadow-sm"
-                    >
-                        Run Code
-                    </button>
+                    {!livePreview && (
+                        <button
+                            onClick={handleRun}
+                            className="bg-green-600 hover:bg-green-700 text-white text-sm px-4 py-1.5 rounded flex items-center shadow-sm"
+                        >
+                            Run Code
+                        </button>
+                    )}
                 </div>
             </div>
             <div className="flex-grow">

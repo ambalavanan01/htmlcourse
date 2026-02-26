@@ -62,7 +62,7 @@ export default function OnlineCompiler() {
             <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-6 min-h-0 pb-8 lg:pb-0">
                 {/* Editor Panel */}
                 <div className="min-h-[450px] lg:min-h-0 lg:h-full flex flex-col">
-                    <CodeEditor initialCode={defaultCode} onRun={handleRunCode} />
+                    <CodeEditor initialCode={defaultCode} onRun={handleRunCode} livePreview={true} />
                 </div>
 
                 {/* Output Panel */}
